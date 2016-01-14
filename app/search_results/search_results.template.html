@@ -1,0 +1,47 @@
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<div class="container" ng-init="showData()">
+    <div class="search">
+        <button class="btn btn-primary btn-sm" ng-click="goBack()">Back</button>
+    </div>
+    <div class="results">
+        <div class="panel panel-default"
+             ng-repeat="item in data | limitTo: paginationLimit()"
+             ng-click="onItemClick(item)">
+            <div class="panel-heading">
+                {{item.cost.value}}
+                {{item.cost.currency}}
+                    <span ng-if="!item.cost.value">
+                        Стоимость аренды уточняйте по телефону.
+                    </span>
+            </div>
+            <div class="bg-info">
+            <div class="sup-text">
+            <sup>Добавлено {{item.date | limitTo: 10 }}</sup></div>
+            <div>
+                {{item.content}}</div>
+            <div class="telephone">Номер тел. <a ng-repeat="key in item.phones">
+                {{key}}
+            </a>
+            </div>
+                </div>
+        </div>
+    </div>
+    <div ng-if="!data">
+        There was a problem, with you search.
+    </div>
+    <div class="search">
+        <button class="btn btn-primary btn-sm"
+                ng-show="hasMoreItemsToShow()"
+                ng-click="showMoreItems()">
+            Show more
+        </button>
+    </div>
+    <div ng-show="load"
+         class="loading">
+        <a class="loading-screen"></a>
+        <img class="img-loading"
+             src="http://www.nasa.gov/multimedia/videogallery/ajax-loader.gif"
+             width="20"
+             height="20"/>
+    </div>
+</div>

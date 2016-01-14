@@ -1,0 +1,31 @@
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<div class="container well">
+    <input type="radio" id="radio1" name="radios" value="kyiv" ng-model="inputData">
+    <label for="radio1">Киев</label>
+    <input type="radio" id="radio2" name="radios" value="kharkiv" ng-model="inputData">
+    <label for="radio2">Харьков</label>
+    <input type="radio" id="radio3" name="radios" value="sumy" ng-model="inputData">
+    <label for="radio3">Сумы</label>
+    <input type="radio" id="radio4" name="radios" value="ternopil" ng-model="inputData">
+    <label for="radio4">Тернополь</label>
+    <input type="radio" id="radio5" name="radios" value="uzhhorod" ng-model="inputData">
+    <label for="radio5">Ужгород</label>
+    <input type="radio" id="radio6" name="radios" value="donetsk" ng-model="inputData">
+    <label for="radio6">Донецк</label>
+
+    <div class="search">
+    <button ng-disabled="inputData == null"
+            class="btn btn-primary btn-xs"
+            type="submit"
+            ng-click="saveForm()">Search
+    </button>
+    </div>
+    <div ng-show="load"
+         class="loading">
+        <a class="loading-screen"></a>
+        <img class="img-loading" src="http://www.nasa.gov/multimedia/videogallery/ajax-loader.gif"
+             width="20"
+             height="20"/>
+    </div>
+</div>
+
